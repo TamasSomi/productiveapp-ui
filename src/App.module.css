@@ -4,6 +4,10 @@
     min-height: 100vh;
 }
 
+.Main {
+    padding-top: 81px;
+}
+
 * {
     box-sizing: border-box;
   }
@@ -11,6 +15,7 @@
   a {
     color: #A9A9A9;
     transition: color ease-in-out 0.3s;
+    text-decoration: none;
   }
   
   a:hover {
