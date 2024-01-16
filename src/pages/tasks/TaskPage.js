@@ -29,10 +29,6 @@ function TaskPage() {
     handleMount()
   }, [id]);
 
-  if (!isOwner) {
-    return <p>You are not authorized to view this task.</p>;
-  }
-  
   return (
     <Row className="h-100">
       <Col className="mx-auto py-2 p-0 p-lg-2" lg={8}>
