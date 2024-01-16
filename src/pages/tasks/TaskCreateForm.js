@@ -12,7 +12,7 @@ import styles from "../../styles/TaskCreateEditForm.module.css";
 import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
 import Asset from "../../components/Asset";
-import { Image } from "react-bootstrap";
+import { Alert, Image } from "react-bootstrap";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { axiosReq } from "../../api/axiosDefaults";
 
@@ -78,6 +78,12 @@ function TaskCreateForm() {
           onChange={handleChange}
         />
       </Form.Group>
+
+      {errors?.title?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+            {message}
+        </Alert>
+      ))}
       <Form.Group>
         <Form.Label>Content</Form.Label>
         <Form.Control
@@ -88,6 +94,11 @@ function TaskCreateForm() {
           onChange={handleChange}
         />
       </Form.Group>
+      {errors?.content?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+            {message}
+        </Alert>
+      ))}
       <Form.Group>
         <Form.Label>Deadline</Form.Label>
         <Form.Control
@@ -97,10 +108,15 @@ function TaskCreateForm() {
           onChange={handleChange}
         />
       </Form.Group>
+      {errors?.deadline?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+            {message}
+        </Alert>
+      ))}
 
       <Button
         className={`${btnStyles.Button} ${btnStyles.Blue}`}
-        onClick={() => {}}
+        onClick={() => history.goBack()}
       >
         cancel
       </Button>
@@ -151,6 +167,12 @@ function TaskCreateForm() {
                 ref={imageInput}
               />
             </Form.Group>
+            {errors?.image?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+            {message}
+        </Alert>
+      ))}
+
             <div className="d-md-none">{textFields}</div>
           </Container>
         </Col>
