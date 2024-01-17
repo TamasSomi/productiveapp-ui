@@ -8,6 +8,7 @@ import appStyles from "../../App.module.css";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 import { axiosReq } from "../../api/axiosDefaults";
 import Task from "./Task";
+import Note from "../notes/Note"
 import NoteCreateForm from "../notes/NoteCreateForm";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
@@ -22,11 +23,12 @@ function TaskPage() {
   useEffect(() => {
     const handleMount = async () => {
       try {
-        const [{ data: task }] = await Promise.all([
+        const [{ data: task }, {data: notes}] = await Promise.all([
           axiosReq.get(`/tasks/${id}`),
+          axiosReq.get(`/notes/?task=${id}`)
         ]);
         setTask({ results: [task] });
-        console.log(task);
+        setNotes(notes);
       } catch (err) {
         console.log(err);
       }
@@ -51,6 +53,15 @@ function TaskPage() {
           ) : notes.results.length ? (
             "Notes"
           ) : null}
+          {notes.results.length ? (
+            notes.results.map(note => (
+                <Note key={note.id} {...note}/>
+            ))
+          ) : currentUser ? (
+            <span>No notes have been added yet.</span>
+          ) : (
+            <span>No notes yet.</span>
+          )}
         </Container>
       </Col>
     </Row>
