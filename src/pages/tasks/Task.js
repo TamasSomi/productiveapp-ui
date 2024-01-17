@@ -4,6 +4,9 @@ import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { Card, Media } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Avatar from "../../components/Avatar";
+import { MoreDropdown } from "../../components/MoreDropdown";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import { axiosRes } from "../../api/axiosDefaults";
 
 const Task = (props) => {
   const {
@@ -22,6 +25,20 @@ const Task = (props) => {
 
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === owner;
+  const history = useHistory();
+
+  const handleEdit = () => {
+    history.push(`/tasks/${id}/edit`);
+  }
+
+  const handleDelete = async () => {
+    try {
+        await axiosRes.delete(`/tasks/${id}/`);
+        history.goBack();
+    } catch (err) {
+        console.log(err);
+    }
+  };
 
   return (
     <Card className={styles.Task}>
@@ -32,8 +49,12 @@ const Task = (props) => {
             {owner}
           </Link>
           <div className="d-flex align-items-center">
+            {is_owner && taskPage && (
+            <MoreDropdown
+                handleEdit={handleEdit}
+                handleDelete={handleDelete}
+            />)}
             <span>{updated_at}</span>
-            {is_owner && taskPage && "..."}
             {deadline && (
               <>
                 <span className="mx-2">|</span>
