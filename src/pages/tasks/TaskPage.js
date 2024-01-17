@@ -55,7 +55,9 @@ function TaskPage() {
           ) : null}
           {notes.results.length ? (
             notes.results.map(note => (
-                <Note key={note.id} {...note}/>
+                <Note key={note.id} {...note}
+                setTask={setTask}
+                setNotes={setNotes} />
             ))
           ) : currentUser ? (
             <span>No notes have been added yet.</span>
