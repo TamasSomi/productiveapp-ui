@@ -63,7 +63,7 @@ function NoteCreateForm(props) {
         disabled={!content.trim()}
         type="submit"
       >
-        post
+        Submit
       </button>
     </Form>
   );
