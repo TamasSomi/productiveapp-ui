@@ -23,9 +23,10 @@ function TaskPage() {
       try {
         const [{ data: task }, { data: notes }] = await Promise.all([
           axiosReq.get(`/tasks/${id}`),
-          axiosReq.get(`/notes/?task=${id}`)
+          axiosReq.get(`/notes/?task=${id}`),
         ]);
         setTask({ results: [task] });
+        console.log("Notes Data:", notes);
         setNotes(notes);
       } catch (err) {
         console.log(err);
@@ -39,7 +40,8 @@ function TaskPage() {
   const isLoggedIn = !!currentUser;
 
   // Check if the user is the profile owner
-  const isProfileOwner = isLoggedIn && currentUser.profile_id === task.results[0]?.profile_id;
+  const isProfileOwner =
+    isLoggedIn && currentUser.profile_id === task.results[0]?.profile_id;
 
   return (
     <Row className="h-100">
@@ -51,13 +53,13 @@ function TaskPage() {
             <span>You are not permitted to view this content.</span>
           )
         ) : (
-        <span>
-        Please{" "}
-        <Link to="/signin" className={appStyles.LoginLink}>
-          log in
-        </Link>{" "}
-        to view this content.
-      </span>
+          <span>
+            Please{" "}
+            <Link to="/signin" className={appStyles.LoginLink}>
+              log in
+            </Link>{" "}
+            to view this content.
+          </span>
         )}
         {isProfileOwner && (
           <Container className={appStyles.Content}>
@@ -69,9 +71,16 @@ function TaskPage() {
               setNotes={setNotes}
             />
             {notes.results.length ? (
-              notes.results.map((note) => (
-                <Note key={note.id} {...note} setTask={setTask} setNotes={setNotes} />
-              ))
+              notes.results
+                .filter((note) => note.task === parseInt(id)) // Filter notes based on the current task ID
+                .map((note) => (
+                  <Note
+                    key={note.id}
+                    {...note}
+                    setTask={setTask}
+                    setNotes={setNotes}
+                  />
+                ))
             ) : (
               <span>No notes have been added yet.</span>
             )}

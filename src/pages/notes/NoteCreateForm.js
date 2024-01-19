@@ -23,6 +23,7 @@ function NoteCreateForm(props) {
         content,
         task,
       });
+
       setNotes((prevNotes) => ({
         ...prevNotes,
         results: [data, ...prevNotes.results],
