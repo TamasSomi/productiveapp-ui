@@ -15,19 +15,21 @@ const NavBar = () => {
   const currentUser = useCurrentUser();
   const setCurrentUser = useSetCurrentUser();
 
-  const {expanded, setExpanded, ref} = useClickOutsideToggle();
+  // Custom hook for handling click outside toggle
+  const { expanded, setExpanded, ref } = useClickOutsideToggle();
 
-
+  // Function to handle user sign out
   const handleSignOut = async () => {
     try {
       await axios.post("dj-rest-auth/logout/");
       setCurrentUser(null);
     } catch (err) {
       console.log(err);
-      console.log(err.response)
+      console.log(err.response);
     }
   };
 
+  // Navigation link for adding a task
   const addTaskIcon = (
     <NavLink
       className={styles.NavLink}
@@ -37,6 +39,8 @@ const NavBar = () => {
       <i className="far fa-plus-square"></i>Add task
     </NavLink>
   );
+
+  // Navigation icons for logged in users
   const loggedInIcons = (
     <>
       <NavLink
@@ -51,6 +55,8 @@ const NavBar = () => {
       </NavLink>
     </>
   );
+
+  // Navigation icons for logged out users
   const loggedOutIcons = (
     <>
       <NavLink
@@ -71,7 +77,12 @@ const NavBar = () => {
   );
 
   return (
-    <Navbar expanded={expanded} className={styles.NavBar} expand="md" fixed="top">
+    <Navbar
+      expanded={expanded}
+      className={styles.NavBar}
+      expand="md"
+      fixed="top"
+    >
       <Container>
         <NavLink to="/">
           <Navbar.Brand>
@@ -80,9 +91,9 @@ const NavBar = () => {
         </NavLink>
         {currentUser && addTaskIcon}
         <Navbar.Toggle
-            ref={ref}
-            aria-controls="basic-navbar-nav"
-            onClick={() => setExpanded(!expanded)}
+          ref={ref}
+          aria-controls="basic-navbar-nav"
+          onClick={() => setExpanded(!expanded)}
         />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto text-left">
