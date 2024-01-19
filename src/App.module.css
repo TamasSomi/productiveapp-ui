@@ -1,6 +1,6 @@
 .App {
     font-family: "Fira Sans', sans-serif";
-    background-color: #f8f8f8;
+    background-color: #fdf5e2;
     min-height: 100vh;
 }
 
@@ -9,7 +9,7 @@
 }
 
 .Content {
-    background-color: #ffffff;
+    background-color: #fdf1cb;
     padding: 10px;
     border-radius: 2px;
     border: 1px solid #dadadf;
@@ -74,7 +74,7 @@ figure {
 }
 
 *::-webkit-scrollbar-track {
-    background: #f1f1f1;
+    background: #fbe5ba;
 }
 
 *::-webkit-scrollbar-thumb {
