@@ -29,14 +29,14 @@ const Task = (props) => {
 
   const handleEdit = () => {
     history.push(`/tasks/${id}/edit`);
-  }
+  };
 
   const handleDelete = async () => {
     try {
-        await axiosRes.delete(`/tasks/${id}/`);
-        history.goBack();
+      await axiosRes.delete(`/tasks/${id}/`);
+      history.goBack();
     } catch (err) {
-        console.log(err);
+      // console.log(err);
     }
   };
 
@@ -50,10 +50,11 @@ const Task = (props) => {
           </Link>
           <div className="d-flex align-items-center">
             {is_owner && taskPage && (
-            <MoreDropdown
+              <MoreDropdown
                 handleEdit={handleEdit}
                 handleDelete={handleDelete}
-            />)}
+              />
+            )}
             <span>{updated_at}</span>
             {deadline && (
               <>

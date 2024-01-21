@@ -26,10 +26,9 @@ function TaskPage() {
           axiosReq.get(`/notes/?task=${id}`),
         ]);
         setTask({ results: [task] });
-        console.log("Notes Data:", notes);
         setNotes(notes);
       } catch (err) {
-        console.log(err);
+        // console.log(err);
       }
     };
 
@@ -92,8 +91,3 @@ function TaskPage() {
 }
 
 export default TaskPage;
-
-
-
-
-

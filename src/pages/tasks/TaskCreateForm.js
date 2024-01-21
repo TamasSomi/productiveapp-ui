@@ -34,8 +34,8 @@ function TaskCreateForm() {
     });
   };
 
-  const imageInput = useRef(null)
-  const history = useHistory()
+  const imageInput = useRef(null);
+  const history = useHistory();
 
   const handleChangeImage = (event) => {
     if (event.target.files.length) {
@@ -48,24 +48,24 @@ function TaskCreateForm() {
   };
 
   const handleSubmit = async (event) => {
-    event.preventDefault()
+    event.preventDefault();
     const formData = new FormData();
 
-    formData.append('title', title)
-    formData.append('content', content)
-    formData.append('deadline', deadline)
-    formData.append('image', imageInput.current.files[0])
+    formData.append("title", title);
+    formData.append("content", content);
+    formData.append("deadline", deadline);
+    formData.append("image", imageInput.current.files[0]);
 
     try {
-        const {data} = await axiosReq.post('/tasks/', formData);
-        history.push(`/tasks/${data.id}`)
-    } catch(err) {
-        console.log(err)
-        if (err.response?.status !== 401){
-            setErrors(err.response?.data)
-        }
+      const { data } = await axiosReq.post("/tasks/", formData);
+      history.push(`/tasks/${data.id}`);
+    } catch (err) {
+      // console.log(err)
+      if (err.response?.status !== 401) {
+        setErrors(err.response?.data);
+      }
     }
-  }
+  };
 
   const textFields = (
     <div className="text-center">
@@ -81,7 +81,7 @@ function TaskCreateForm() {
 
       {errors?.title?.map((message, idx) => (
         <Alert variant="warning" key={idx}>
-            {message}
+          {message}
         </Alert>
       ))}
       <Form.Group>
@@ -96,7 +96,7 @@ function TaskCreateForm() {
       </Form.Group>
       {errors?.content?.map((message, idx) => (
         <Alert variant="warning" key={idx}>
-            {message}
+          {message}
         </Alert>
       ))}
       <Form.Group>
@@ -110,7 +110,7 @@ function TaskCreateForm() {
       </Form.Group>
       {errors?.deadline?.map((message, idx) => (
         <Alert variant="warning" key={idx}>
-            {message}
+          {message}
         </Alert>
       ))}
 
@@ -168,10 +168,10 @@ function TaskCreateForm() {
               />
             </Form.Group>
             {errors?.image?.map((message, idx) => (
-        <Alert variant="warning" key={idx}>
-            {message}
-        </Alert>
-      ))}
+              <Alert variant="warning" key={idx}>
+                {message}
+              </Alert>
+            ))}
 
             <div className="d-md-none">{textFields}</div>
           </Container>
