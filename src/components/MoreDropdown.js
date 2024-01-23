@@ -40,8 +40,3 @@ export const MoreDropdown = ({ handleEdit, handleDelete }) => {
     </Dropdown>
   );
 };
-
-
-MoreDropdown.displayName = 'MoreDropdown';
-
-export default MoreDropdown;
