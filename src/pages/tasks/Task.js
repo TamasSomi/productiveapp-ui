@@ -44,10 +44,10 @@ const Task = (props) => {
     <Card className={styles.Task}>
       <Card.Body>
         <Media className="align-items-center justify-content-between">
-          <Link to={`/profiles/${profile_id}`}>
+          <div to={`/profiles/${profile_id}`}>
             <Avatar src={profile_image} height={45} />
             {owner}
-          </Link>
+          </div>
           <div className="d-flex align-items-center">
             {is_owner && taskPage && (
               <MoreDropdown
