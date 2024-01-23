@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "../../styles/Task.module.css";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
-import { Card, Media } from "react-bootstrap";
+import { Card, Media, Modal, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Avatar from "../../components/Avatar";
 import { MoreDropdown } from "../../components/MoreDropdown";
@@ -27,6 +27,8 @@ const Task = (props) => {
   const is_owner = currentUser?.username === owner;
   const history = useHistory();
 
+  const [showDeleteModal, setShowDeleteModal] = useState(false);
+
   const handleEdit = () => {
     history.push(`/tasks/${id}/edit`);
   };
@@ -37,7 +39,17 @@ const Task = (props) => {
       history.goBack();
     } catch (err) {
       // console.log(err);
+    } finally {
+      setShowDeleteModal(false);
     }
+  };
+
+  const openDeleteModal = () => {
+    setShowDeleteModal(true);
+  };
+
+  const closeDeleteModal = () => {
+    setShowDeleteModal(false);
   };
 
   return (
@@ -52,7 +64,7 @@ const Task = (props) => {
             {is_owner && taskPage && (
               <MoreDropdown
                 handleEdit={handleEdit}
-                handleDelete={handleDelete}
+                handleDelete={openDeleteModal}
               />
             )}
             <span>{updated_at}</span>
@@ -80,6 +92,24 @@ const Task = (props) => {
           {notes_count}
         </div>
       </Card.Body>
+
+      {/* Delete Confirmation Modal */}
+      <Modal show={showDeleteModal} onHide={closeDeleteModal}>
+        <Modal.Header closeButton>
+          <Modal.Title>Confirm Deletion</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          Are you sure you want to delete this task?
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={closeDeleteModal}>
+            Cancel
+          </Button>
+          <Button variant="danger" onClick={handleDelete}>
+            Delete
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </Card>
   );
 };
