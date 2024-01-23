@@ -48,6 +48,22 @@ This page is a very simple productivity app where user could create tasks, write
 
 ## Planning ##
 
+* Implement 2 models on top of profile/user.
+* Task for user to create the task, be able to add image, title content and deadline.
+* Note related to task model, to add additional note to tasks.
+
+### Sketches ###
+
+* Home page:
+
+![Home page sketch](src/assets/docs/home-sketch.png)
+
+* Task page:
+
+![Task page sketch ](src/assets/docs/task-page-sketch.png)
+
+
+
 
 ## Technology Used ##
 
@@ -247,14 +263,51 @@ Used technologies during development:
 2. Pass.
 3. Pass.
 
+## Online tets, code cheker results ##
+
+* Lighthouse test:
+
+![Lighthouse test result screenshot](src/assets/docs/lighthouse-test.png)
+
 ## Bugs ##
 
 ### User could set the deadline in the future ###
 * Solved by adding validate_deadline method and raise an error.
 
 ### A note was assined for all the tasks ###
+* Solved by parseing the note id and than map.
+
+### When clicked on a task while loading, not permitted message was displayed. ###
+* Solved by checking if loaded and added the spinner to TaskPage as well.
+
+### Remaining Bugs ###
+* The note count is not displaying the number of notes.
+
+## Deployment ##
+
+### Deployment to Heroku ###
+
+* After you have created a new gitpod/codeanywhere workspace and set up the new project, you can deploy to Heroku.
+
+* In your heroku account, select Create New App, and give it a unique name related to your project.
+* Select a region corresponding to where you live and click 'Create App'.
+* Go into the 'Deploy' tab select GitHub as the 'deployment method', find your project repository and click 'Connect'.
+* lick 'Deploy branch' to trigger Heroku to start building the application.
+* When you see the message saying 'build succeeded' you can click 'Open App' to see your application in the browser.
+
+### Fork this Project Repository ###
+
+It is possible to make an independent copy of a GitHub Repository by forking the GitHub account. The copy can then be viewed and it is also possible to make changes in the copy without affecting the original repository. To fork the repository, follow these steps:
+
+ * Log in to GitHub
+ * Locate the repository. On the top right side of the page there is a 'Fork' button. Click on the button to create a copy of the original repository.
 
 
+### Clone this Project Repository ###
+
+A Git clone creates a linked copy of the project that will continue to synchronize with the original repository. In order to create a clone, you can click on the 'Code' button inside the selected repository and then select the 'Clone' option from the dropdown list.
+
+## Credit ##
 
 
 
