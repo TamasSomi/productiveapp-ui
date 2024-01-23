@@ -11,7 +11,7 @@
 
 This page is a very simple productivity app where user could create tasks, write notes for the tasks and set deadline, upload img. Built only for learning purposes.
 
-[Click here to read the user stories on Github Issues](/issues)
+[Click here to read the user stories on Github Issues](https://github.com/users/TamasSomi/projects/7)
 
 ## Target Audiance ##
 
@@ -119,14 +119,6 @@ This page is a very simple productivity app where user could create tasks, write
 * Click the save button.
 
 ![Edit or delete a note screenshot](src/assets/docs/note-delete-edit.png)
-
-
-
-
-
-
-
-
 
 ## Technology Used ##
 
