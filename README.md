@@ -40,6 +40,12 @@ This page is a very simple productivity app where user could create tasks, write
 * More user could access the same task if permitted.
 * Assigned responsibilities within a task.
 
+## Security Features ##
+
+* The user is authenticated and can not access any data without logging in.
+* Only the owner can read, edit or delete data.
+* Unauthorised or not permitted user can not access any task.
+
 ## Planning ##
 
 
@@ -240,6 +246,14 @@ Used technologies during development:
 1. Pass.
 2. Pass.
 3. Pass.
+
+## Bugs ##
+
+### User could set the deadline in the future ###
+* Solved by adding validate_deadline method and raise an error.
+
+### A note was assined for all the tasks ###
+
 
 
 
