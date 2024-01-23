@@ -62,6 +62,69 @@ This page is a very simple productivity app where user could create tasks, write
 
 ![Task page sketch ](src/assets/docs/task-page-sketch.png)
 
+## Authentication ##
+
+### Registration ###
+
+* To register click on the sign up button in the nav bar.
+* Fill the form with a valid user name and password.
+* Click on sign up under the form.
+
+![Sign up screenshot](src/assets/docs/sign-up.png)
+
+### Sign In ###
+
+* To sign in (after you have a profile created) click on the Sign in button in the nav bar.
+* Fill the form with your user name and password.
+* Click on sign in button under the form.
+
+![Sign in screenshot](src/assets/docs/sign-in.png)
+
+### Sign Out ###
+
+* To sign out, click on the sign out button on the top of the page.
+
+## User interface after logging in ##
+
+### Create a task ###
+
+* To create a task click on the add task button on the top of the page.
+* Fill out the form with valid data and click on Create.
+
+![Add a task screenshot](src/assets/docs/task-create.png)
+
+### Edit or delete a task ###
+
+* To edit or delete a task, click on the task from the home page.
+* Click the 3 dots on the task.
+* To delete the task click on the delete icon.
+* To edit a task click on the edit icon and fill the form with the updated data.
+* click the save button.
+
+![Task edit, delete screenshot](src/assets/docs/task-delete-edit.png)
+
+### Create a note ###
+
+* To create a note click on a task you wish to add a note to and under the task, fill the text area with your note.
+* Click on the submit button.
+
+![Create a note screenshot](src/assets/docs/note-create.png)
+
+### Edit or delete a note ###
+
+* To delete a note from the home page click on the task. Scroll done to the note and click the three dots.
+* Click on the delete icon.
+* To edit a note after you clicked the three dots, click on the edit icon.
+* Enter the updated note to the text field.
+* Click the save button.
+
+![Edit or delete a note screenshot](src/assets/docs/note-delete-edit.png)
+
+
+
+
+
+
 
 
 
@@ -72,11 +135,22 @@ Used technologies during development:
 * [Github](https://github.com/)
 * [Codeanywhere](https://codeanywhere.com/)
 * [Heroku](https://dashboard.heroku.com/)
-* [Django-Rest](https://www.django-rest-framework.org/)
 * [Django Allauth](https://docs.allauth.org/en/latest/#)
-* [React-Bootstrap](https://react-bootstrap.netlify.app/)
-* [React](https://react.dev/)
 * [ElephantSql](https://www.elephantsql.com/)
+* [Moqups](https://moqups.com/)
+* [LightHouse](https://developer.chrome.com/docs/lighthouse/overview)
+* [Cloudinary](https://cloudinary.com/)
+* [Favicon](https://favicon.io/)
+* 
+
+### Languages/Frameworks Used ###
+
+* [HTML5](https://developer.mozilla.org/en-US/docs/Glossary/HTML5)
+* [CSS3](https://developer.mozilla.org/en-US/docs/Web/CSS)
+* [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+* [ReactJS](https://react.dev/)
+* [React-Bootstrap](https://react-bootstrap.netlify.app/)
+* [Django-Rest](https://www.django-rest-framework.org/)
 
 ## Manual Test ##
 
@@ -269,6 +343,11 @@ Used technologies during development:
 
 ![Lighthouse test result screenshot](src/assets/docs/lighthouse-test.png)
 
+* No errors were returned after runing Eslint tests.
+* Eslint was set up with the following rules:
+
+![Eslint settings screenshot](src/assets/docs/eslint-screenshot.png)
+
 ## Bugs ##
 
 ### User could set the deadline in the future ###
@@ -308,6 +387,12 @@ It is possible to make an independent copy of a GitHub Repository by forking the
 A Git clone creates a linked copy of the project that will continue to synchronize with the original repository. In order to create a clone, you can click on the 'Code' button inside the selected repository and then select the 'Clone' option from the dropdown list.
 
 ## Credit ##
+
+* The image on the sign in and sign up page was taken from Google images.
+* The No Results found image is taken from Code Institute Moments Walktrough resources.
+* I used [this article](https://stackoverflow.com/questions/28061550/model-datetime-field-validation-for-fields-with-auto-now) to validate the deadline input.
+* I used Code Institute's Moments walktrough project as an example during development.
+* I used a color palette from [color-hex](https://www.color-hex.com/color-palette/4611).
 
 
 
