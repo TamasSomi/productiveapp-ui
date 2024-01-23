@@ -10,10 +10,11 @@ import Note from "../notes/Note";
 import NoteCreateForm from "../notes/NoteCreateForm";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { Link } from "react-router-dom";
+import Asset from "../../components/Asset";
 
 function TaskPage() {
   const { id } = useParams();
-  const [task, setTask] = useState({ results: [] });
+  const [task, setTask] = useState({ results: [], loading: true });
   const currentUser = useCurrentUser();
   const profile_image = currentUser?.profile_image;
   const [notes, setNotes] = useState({ results: [] });
@@ -25,10 +26,11 @@ function TaskPage() {
           axiosReq.get(`/tasks/${id}`),
           axiosReq.get(`/notes/?task=${id}`),
         ]);
-        setTask({ results: [task] });
+        setTask({ results: [task], loading: false });
         setNotes(notes);
       } catch (err) {
         // console.log(err);
+        setTask({ results: [], loading: false }); // Set loading to false in case of an error
       }
     };
 
@@ -45,9 +47,38 @@ function TaskPage() {
   return (
     <Row className="h-100">
       <Col className="mx-auto py-2 p-0 p-lg-2" lg={8}>
-        {isLoggedIn ? (
+        {task.loading ? (
+          <Container className={appStyles.Content}>
+            <Asset spinner />
+          </Container>
+        ) : isLoggedIn ? (
           isProfileOwner ? (
-            <Task {...task.results[0]} setTasks={setTask} taskPage />
+            <>
+              <Task {...task.results[0]} setTasks={setTask} taskPage />
+              <Container className={appStyles.Content}>
+                <NoteCreateForm
+                  profile_id={currentUser.profile_id}
+                  profileImage={profile_image}
+                  task={id}
+                  setTask={setTask}
+                  setNotes={setNotes}
+                />
+                {notes.results.length ? (
+                  notes.results
+                    .filter((note) => note.task === parseInt(id))
+                    .map((note) => (
+                      <Note
+                        key={note.id}
+                        {...note}
+                        setTask={setTask}
+                        setNotes={setNotes}
+                      />
+                    ))
+                ) : (
+                  <span>No notes have been added yet.</span>
+                )}
+              </Container>
+            </>
           ) : (
             <span>You are not permitted to view this content.</span>
           )
@@ -59,31 +90,6 @@ function TaskPage() {
             </Link>{" "}
             to view this content.
           </span>
-        )}
-        {isProfileOwner && (
-          <Container className={appStyles.Content}>
-            <NoteCreateForm
-              profile_id={currentUser.profile_id}
-              profileImage={profile_image}
-              task={id}
-              setTask={setTask}
-              setNotes={setNotes}
-            />
-            {notes.results.length ? (
-              notes.results
-                .filter((note) => note.task === parseInt(id)) // Filter notes based on the current task ID
-                .map((note) => (
-                  <Note
-                    key={note.id}
-                    {...note}
-                    setTask={setTask}
-                    setNotes={setNotes}
-                  />
-                ))
-            ) : (
-              <span>No notes have been added yet.</span>
-            )}
-          </Container>
         )}
       </Col>
     </Row>
