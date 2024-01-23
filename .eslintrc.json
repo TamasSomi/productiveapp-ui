@@ -1,34 +1,32 @@
-{
-  "env": {
+{   "settings": {
+    "react": {
+    "version": "detect"
+    }
+},
+"env": {
     "browser": true,
     "es2021": true,
+    "node": true,
     "jest": true
-  },
-  "extends": ["eslint:recommended", "plugin:react/recommended"],
-  "parserOptions": {
-    "ecmaVersion": "latest",
+},
+"extends": [
+    "eslint:recommended",
+    "plugin:react/recommended"
+],
+"parserOptions": {
+    "ecmaFeatures": {
+        "jsx": true
+    },
+    "ecmaVersion": 12,
     "sourceType": "module"
-  },
-  "plugins": ["react"],
-  "rules": {
-    "import/order": [
-      "error",
-      {
-        "groups": ["builtin", "external", "internal", ["parent", "sibling"]],
-        "pathGroups": [
-          {
-            "pattern": "react",
-            "group": "external",
-            "position": "before"
-          }
-        ],
-        "pathGroupsExcludedImportTypes": ["react"],
-        "newlines-between": "always",
-        "alphabetize": {
-          "order": "asc",
-          "caseInsensitive": true
-        }
-      }
-    ]
-  }
+},
+"plugins": [
+    "react"
+],
+"rules": {
+    "react/react-in-jsx-scope": "off",
+    "react/prop-types": "off",
+    "no-unused-vars": ["warn", { "argsIgnorePattern": "req|res|next|__" }]
+}
+
 }
