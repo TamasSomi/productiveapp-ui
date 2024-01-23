@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Media } from "react-bootstrap";
+import { Media, Modal, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { axiosRes } from "../../api/axiosDefaults";
 import Avatar from "../../components/Avatar";
@@ -21,6 +21,8 @@ const Note = (props) => {
   } = props;
 
   const [showEditForm, setShowEditForm] = useState(false);
+  const [showDeleteModal, setShowDeleteModal] = useState(false);
+
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === owner;
 
@@ -41,8 +43,18 @@ const Note = (props) => {
         results: prevNotes.results.filter((note) => note.id !== id),
       }));
     } catch (err) {
-        // console.log(err);
+      // console.log(err);
+    } finally {
+      setShowDeleteModal(false);
     }
+  };
+
+  const openDeleteModal = () => {
+    setShowDeleteModal(true);
+  };
+
+  const closeDeleteModal = () => {
+    setShowDeleteModal(false);
   };
 
   return (
@@ -69,10 +81,30 @@ const Note = (props) => {
           )}
         </Media.Body>
         {is_owner && !showEditForm && (
-          <MoreDropdown
-            handleEdit={() => setShowEditForm(true)}
-            handleDelete={handleDelete}
-          />
+          <>
+            <MoreDropdown
+              handleEdit={() => setShowEditForm(true)}
+              handleDelete={openDeleteModal}
+            />
+
+            {/* Delete Confirmation Modal */}
+            <Modal show={showDeleteModal} onHide={closeDeleteModal}>
+              <Modal.Header closeButton>
+                <Modal.Title>Confirm Deletion</Modal.Title>
+              </Modal.Header>
+              <Modal.Body>
+                Are you sure you want to delete this note?
+              </Modal.Body>
+              <Modal.Footer>
+                <Button variant="secondary" onClick={closeDeleteModal}>
+                  Cancel
+                </Button>
+                <Button variant="danger" onClick={handleDelete}>
+                  Delete
+                </Button>
+              </Modal.Footer>
+            </Modal>
+          </>
         )}
       </Media>
     </>
