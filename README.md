@@ -6,7 +6,7 @@
 
 [Click here to visit the API Github repository.](https://github.com/TamasSomi/productive-app)
 
-![Responsive screenshot of the home page.](src/assets/docs/responsive-screenshot-homepage.png)
+![Responsive screenshot of the home page.](/src/assets/docs/responsive-screenshot-homepage.png)
 
 
 This page is a very simple productivity app where user could create tasks, write notes for the tasks and set deadline, upload img. Built only for learning purposes.
@@ -56,11 +56,11 @@ This page is a very simple productivity app where user could create tasks, write
 
 * Home page:
 
-![Home page sketch](src/assets/docs/home-sketch.png)
+![Home page sketch](/src/assets/docs/home-sketch.png)
 
 * Task page:
 
-![Task page sketch ](src/assets/docs/task-page-sketch.png)
+![Task page sketch ](/src/assets/docs/task-page-sketch.png)
 
 ## Authentication ##
 
@@ -70,7 +70,7 @@ This page is a very simple productivity app where user could create tasks, write
 * Fill the form with a valid user name and password.
 * Click on sign up under the form.
 
-![Sign up screenshot](src/assets/docs/sign-up.png)
+![Sign up screenshot](/src/assets/docs/sign-up.png)
 
 ### Sign In ###
 
@@ -78,7 +78,7 @@ This page is a very simple productivity app where user could create tasks, write
 * Fill the form with your user name and password.
 * Click on sign in button under the form.
 
-![Sign in screenshot](src/assets/docs/sign-in.png)
+![Sign in screenshot](/src/assets/docs/sign-in.png)
 
 ### Sign Out ###
 
@@ -91,7 +91,7 @@ This page is a very simple productivity app where user could create tasks, write
 * To create a task click on the add task button on the top of the page.
 * Fill out the form with valid data and click on Create.
 
-![Add a task screenshot](src/assets/docs/task-create.png)
+![Add a task screenshot](/src/assets/docs/task-create.png)
 
 ### Edit or delete a task ###
 
@@ -101,14 +101,14 @@ This page is a very simple productivity app where user could create tasks, write
 * To edit a task click on the edit icon and fill the form with the updated data.
 * click the save button.
 
-![Task edit, delete screenshot](src/assets/docs/task-delete-edit.png)
+![Task edit, delete screenshot](/src/assets/docs/task-delete-edit.png)
 
 ### Create a note ###
 
 * To create a note click on a task you wish to add a note to and under the task, fill the text area with your note.
 * Click on the submit button.
 
-![Create a note screenshot](src/assets/docs/note-create.png)
+![Create a note screenshot](/src/assets/docs/note-create.png)
 
 ### Edit or delete a note ###
 
@@ -118,7 +118,7 @@ This page is a very simple productivity app where user could create tasks, write
 * Enter the updated note to the text field.
 * Click the save button.
 
-![Edit or delete a note screenshot](src/assets/docs/note-delete-edit.png)
+![Edit or delete a note screenshot](/src/assets/docs/note-delete-edit.png)
 
 ## Technology Used ##
 
@@ -333,12 +333,12 @@ Used technologies during development:
 
 * Lighthouse test:
 
-![Lighthouse test result screenshot](src/assets/docs/lighthouse-test.png)
+![Lighthouse test result screenshot](/src/assets/docs/lighthouse-test.png)
 
 * No errors were returned after runing Eslint tests.
 * Eslint was set up with the following rules:
 
-![Eslint settings screenshot](src/assets/docs/eslint-screenshot.png)
+![Eslint settings screenshot](/src/assets/docs/eslint-screenshot.png)
 
 ## Bugs ##
 
