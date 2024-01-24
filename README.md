@@ -150,190 +150,111 @@ Used technologies during development:
 * [React-Bootstrap](https://react-bootstrap.netlify.app/)
 * [Django-Rest](https://www.django-rest-framework.org/)
 
-## Manual Test ##
+## Reusable React Components ##
 
-### Test Case: Registration ###
+### Three Dots Edit Delete Dropdown Menu ###
 
-#### Steps: ####
-1. Navigate to the registration page.
-2. Fill in all required fields with valid data.
-3. Click the register button.
+* Based on the Moments walkthrough project 'MoreDropdown' component, I have utilised the same idea in my project.
+The component allows the user to click on the three dots and there will be available two icons, to delete or edit a task or note.
 
-#### Expected Results: ####
-1. The registration page is displayed.
-2. All fields accept valid input.
-3. The user is redirected to the homepage.
+### Format deadline ###
 
-#### Result: ####
-1. Pass.
-2. Pass.
-3. Pass.
-
-### Test Case: Login ###
-
-#### Steps: ####
-1. When logged out, click on the Sign In button.
-2. Fill in the fields with an existing username and password.
-3. Press the Sign in button.
-
-#### Expected Results: ####
-1. The login page is displayed.
-2. All fields accept valid input.
-3. The user is redirected to the home page.
-
-#### Result: ####
-1. Pass.
-2. Pass.
-3. Pass.
-
-### Test Case: Logout ###
-
-#### Steps: ####
-1. When logged in, click on the Sign Out button.
-
-#### Expected Results: ####
-1. The home page is displayed. User is logged out.
-
-#### Result: ####
-1. Pass.
-
-### Test Case: Create a Task ###
-
-#### Steps: ####
-1. Go to the add a task page when signed in by clicking on the add task button.
-2. Fill the task form with valid data.
-3. Press the create button.
-
-#### Expected Results: ####
-1. User redirected to the create task page and the form displayed with fields of title, content, and deadline, add image fields.
-2. The form accepts only valid data. All fields required.
-3. The user is redirected to the home/tasks page. The new task is displayed on top of home/tasks page.
-
-#### Result: ####
-1. Pass.
-2. Pass.
-3. Pass.
-
-### Test Case: Edit a Task ###
-
-#### Steps: ####
-1. Go to the dashboard by clicking on the home or tasks button.
-2. Click on one of your tasks and on the three dots, click the edit icon.
-3. Change the data.
-4. Press the save button.
-
-#### Expected Results: ####
-1. The existing tasks are displayed on the home/tasks page.
-2. The user is redirected to the edit_task page. A form displayed with fields of name, title, content, deadline, and add image.
-3. The user is able to change the desired field with valid data.
-4. The user is redirected to the dashboard, and the task is displayed with the updated data.
-
-#### Result: ####
-1. Pass.
-2. Pass.
-3. Pass.
-4. Pass.
-
-### Test Case: Delete a Task ###
-
-#### Steps: ####
-1. Go to the home page by clicking on the tasks/home button. Click on a task.
-2. Click the three dots, delete icon on the task.
-
-#### Expected Results: ####
-1. The tasks are displayed on the page.
-2. The user is redirected to the home page. The deleted task is not displayed anymore.
-
-#### Result: ####
-1. Pass.
-2. Pass.
-
-### Test Case: Responsiveness Test ###
-
-#### Steps: ####
-1. Access the website with a desktop computer.
-2. Open up the devtool and set all the available devices.
-3. Verify that all content and features are properly displayed and usable on all devices.
-
-#### Expected Results: ####
-1. The website is fully displayed with all content and features accessible and usable.
-2. All elements function as expected on both desktop and mobile versions.
-
-#### Result: ####
-1. Pass.
-2. Pass.
-
-### Test Case: Reading a Task ###
-
-#### Steps: ####
-1. Go to the home page by clicking on the home/tasks button.
-
-#### Expected Results: ####
-1. The already existing tasks are displayed with all the necessary data.
-
-#### Result: ####
-1. Pass.
-
-### Test Case: Add a Note to a Task ###
-
-#### Steps: ####
-1. Go to the home menu by clicking on the tasks/home button.
-2. Click on the task you want to add a note for.
-3. Scroll down and under the task enter the text you want to add.
-4. Press the submit button.
+* formatDeadline can be a reusable function. I wrote it specifically to format the deadline that's why the name but giving it a different name would be enough to make it reusable.
 
 
-#### Expected Results: ####
-1. The tasks are displayed.
-2. The selected task displayed.
-3. User can see the textfield for the note.
-4. The note added to the selected task.
+### Confirmation modal ###
 
-#### Result: ####
-1. Pass.
-2. Pass.
-3. Pass.
-4. Pass.
+* I used React confirmation modal for defensive design. I've used this component for data deletion.
+The user is asked if are they sure that they want to delete the task/note.
 
-### Test Case: Edit a Note ###
+# Manual Test
 
-#### Steps: #####
-1. Go to the home menu by clicking on the tasks/home button.
-2. Click on the task that the note you want to edit is related to.
-3. Scroll down and under the task on the note, click on the three dots, edit button.
-4. Change the note.
-5. Press the save button.
+## Test Case: Registration
 
-#### Expected Results: ####
-1. The tasks are displayed.
-2. The selected task displayed.
-3. User can see the note and when clicked, redirected to the editNote page.
-4. User can change the content of the textfield.
-5. User is redirected to the task page, the updated note is displayed.
+| **Steps**                              | **Expected Results**                       | **Result** |
+|----------------------------------------|--------------------------------------------|------------|
+| 1. Navigate to the registration page. | 1. The registration page is displayed.      | Pass.      |
+| 2. Fill in all required fields with valid data. | 2. All fields accept valid input.       | Pass.      |
+| 3. Click the register button.           | 3. User is redirected to the homepage.     | Pass.      |
 
-#### Result: ####
-1. Pass.
-2. Pass.
-3. Pass.
-4. Pass.
-5. Pass.
+## Test Case: Login
 
-### Delete a note ###
+| **Steps**                                        | **Expected Results**                       | **Result** |
+|--------------------------------------------------|--------------------------------------------|------------|
+| 1. When logged out, click on the Sign In button. | 1. The login page is displayed.             | Pass.      |
+| 2. Fill in the fields with an existing username and password. | 2. All fields accept valid input. | Pass.      |
+| 3. Press the Sign in button.                      | 3. User is redirected to the home page.     | Pass.      |
 
-#### Steps: #####
-1. Go to the home menu by clicking on the tasks/home button.
-2. Click on the task that the note you want to delet is related to.
-3. Scroll down and under the task on the note, click on the three dots, delete button.
+## Test Case: Logout
 
-#### Expected Results: ####
-1. The tasks are displayed.
-2. The selected task displayed.
-3. User can see the note and when deleted, redirected to the task page.
+| **Steps**                         | **Expected Results**                       | **Result** |
+|-----------------------------------|--------------------------------------------|------------|
+| 1. When logged in, click on the Sign Out button. | 1. The home page is displayed. User is logged out. | Pass.      |
 
-#### Result: ####
-1. Pass.
-2. Pass.
-3. Pass.
+## Test Case: Create a Task
+
+| **Steps**                                          | **Expected Results**                       | **Result** |
+|----------------------------------------------------|--------------------------------------------|------------|
+| 1. Go to the add a task page by clicking on the add task button when signed in. | 1. User redirected to the create task page. Form displayed with fields of title, content, deadline, and add image. | Pass.      |
+| 2. Fill the task form with valid data.              | 2. The form accepts only valid data. All fields required. | Pass.      |
+| 3. Press the create button.                         | 3. User is redirected to the home/tasks page. The new task is displayed on top. | Pass.      |
+
+## Test Case: Edit a Task
+
+| **Steps**                                        | **Expected Results**                       | **Result** |
+|--------------------------------------------------|--------------------------------------------|------------|
+| 1. Go to the dashboard by clicking on the home or tasks button. | 1. Existing tasks displayed on the home/tasks page. | Pass.      |
+| 2. Click on one of your tasks and on the three dots, click the edit icon. | 2. User redirected to the edit_task page. Form displayed with fields of name, title, content, deadline, and add image. | Pass.      |
+| 3. Change the data.                               | 3. User is able to change the desired field with valid data. | Pass.      |
+| 4. Press the save button.                         | 4. User is redirected to the dashboard, and the task is displayed with the updated data. | Pass.      |
+
+## Test Case: Delete a Task
+
+| **Steps**                                          | **Expected Results**                       | **Result** |
+|----------------------------------------------------|--------------------------------------------|------------|
+| 1. Go to the home page by clicking on the tasks/home button. Click on a task. | 1. Tasks are displayed on the page.         | Pass.      |
+| 2. Click the three dots, delete icon on the task.  | 2. User is redirected to the home page. The deleted task is not displayed anymore. | Pass.      |
+
+## Test Case: Responsiveness Test
+
+| **Steps**                                     | **Expected Results**                       | **Result** |
+|-----------------------------------------------|--------------------------------------------|------------|
+| 1. Access the website with a desktop computer. | 1. The website is fully displayed with all content and features accessible and usable. | Pass.      |
+| 2. Open up the devtool and set all the available devices. | 2. All elements function as expected on both desktop and mobile versions. | Pass.      |
+
+## Test Case: Reading a Task
+
+| **Steps**                                     | **Expected Results**                       | **Result** |
+|-----------------------------------------------|--------------------------------------------|------------|
+| 1. Go to the home page by clicking on the home/tasks button. | 1. Already existing tasks are displayed with all the necessary data. | Pass.      |
+
+## Test Case: Add a Note to a Task
+
+| **Steps**                                          | **Expected Results**                       | **Result** |
+|----------------------------------------------------|--------------------------------------------|------------|
+| 1. Go to the home menu by clicking on the tasks/home button. | 1. Tasks are displayed.                    | Pass.      |
+| 2. Click on the task you want to add a note for.   | 2. Selected task displayed.                | Pass.      |
+| 3. Scroll down and under the task, enter the text you want to add. | 3. User can see the textfield for the note. | Pass.      |
+| 4. Press the submit button.                        | 4. The note is added to the selected task.  | Pass.      |
+
+## Test Case: Edit a Note
+
+| **Steps**                                          | **Expected Results**                       | **Result** |
+|----------------------------------------------------|--------------------------------------------|------------|
+| 1. Go to the home menu by clicking on the tasks/home button. | 1. Tasks are displayed.                    | Pass.      |
+| 2. Click on the task that the note you want to edit is related to. | 2. Selected task displayed.            | Pass.      |
+| 3. Scroll down and under the task on the note, click on the three dots, edit button. | 3. User can see the note, and when clicked, redirected to the editNote page. | Pass.      |
+| 4. Change the note.                                | 4. User can change the content of the textfield. | Pass.      |
+| 5. Press the save button.                          | 5. User is redirected to the task page, the updated note is displayed. | Pass.      |
+
+## Delete a Note
+
+| **Steps**                                          | **Expected Results**                       | **Result** |
+|----------------------------------------------------|--------------------------------------------|------------|
+| 1. Go to the home menu by clicking on the tasks/home button. | 1. Tasks are displayed.                    | Pass.      |
+| 2. Click on the task that the note you want to delete is related to. | 2. Selected task displayed.            | Pass.      |
+| 3. Scroll down and under the task on the note, click on the three dots, delete button. | 3. User can see the note, and when deleted, redirected to the task page. | Pass.      |
+
 
 ## Online tets, code cheker results ##
 
