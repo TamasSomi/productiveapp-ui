@@ -13,6 +13,12 @@ This page is a very simple productivity app where user could create tasks, write
 
 [Click here to read the user stories on Github Issues](https://github.com/users/TamasSomi/projects/7)
 
+## Objective ##
+
+The objective of the page is that people are able to create tasks with deadline so it can help to manage the dayli tasks.
+The site allows people to add notes to the tasks so they can use notes like labels and they can add images as well. 
+Those could be motivational or something else they would like to add.
+
 ## Target Audiance ##
 
 * Users working in fast-paced environments who need a straightforward tool to manage their tasks and deadlines.
