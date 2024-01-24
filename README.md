@@ -13,6 +13,8 @@ This page is a very simple productivity app where user could create tasks, write
 
 [Click here to read the user stories on Github Issues](https://github.com/users/TamasSomi/projects/7)
 
+[Click here to read the API user stories on Github Issues](https://github.com/TamasSomi/productive-app/issues)
+
 ## Objective ##
 
 The objective of the page is that people are able to create tasks with deadline so it can help to manage the dayli tasks.
@@ -139,7 +141,6 @@ Used technologies during development:
 * [LightHouse](https://developer.chrome.com/docs/lighthouse/overview)
 * [Cloudinary](https://cloudinary.com/)
 * [Favicon](https://favicon.io/)
-* 
 
 ### Languages/Frameworks Used ###
 
