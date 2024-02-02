@@ -1,4 +1,4 @@
-# Poductive App #
+# Productive App #
 
 [Click here to visit the live page.](https://productive-app-ui-80cca270cd7d.herokuapp.com/)
 
@@ -19,7 +19,7 @@ This page is a very simple productivity app where user could create tasks, write
 
 The objective of the page is that people are able to create tasks with deadline so it can help to manage the dayli tasks.
 The site allows people to add notes to the tasks so they can use notes like labels and they can add images as well. 
-Those could be motivational or something else they would like to add.
+These could be motivational or something else they would like to add.
 
 ## Target Audiance ##
 
@@ -110,6 +110,7 @@ Those could be motivational or something else they would like to add.
 * click the save button.
 
 ![Task edit, delete screenshot](/src/assets/docs/task-delete-edit.png)
+![Task delete confirm modal screenshot](/src/assets/docs/task-delete-confirmation.png)
 
 ### Create a note ###
 
@@ -120,13 +121,15 @@ Those could be motivational or something else they would like to add.
 
 ### Edit or delete a note ###
 
-* To delete a note from the home page click on the task. Scroll done to the note and click the three dots.
+* To delete a note from the home page click on the task. Scroll down to the note and click the three dots.
 * Click on the delete icon.
+* Click on the delete button to confirm.
 * To edit a note after you clicked the three dots, click on the edit icon.
 * Enter the updated note to the text field.
 * Click the save button.
 
 ![Edit or delete a note screenshot](/src/assets/docs/note-delete-edit.png)
+![Task delete confirm modal screenshot](/src/assets/docs/note-delete-confirmation.png)
 
 ## Technology Used ##
 
@@ -168,7 +171,12 @@ The component allows the user to click on the three dots and there will be avail
 * I used React confirmation modal for defensive design. I've used this component for data deletion.
 The user is asked if are they sure that they want to delete the task/note.
 
+### NavBar element ###
+
+* Navbar element used troughout the page so user can navigate faster.
+
 # Manual Test
+(Screenshots can be found under where i introduce the features under the sketches part of the documentation.)
 
 ## Test Case: Registration
 
@@ -214,7 +222,7 @@ The user is asked if are they sure that they want to delete the task/note.
 | **Steps**                                          | **Expected Results**                       | **Result** |
 |----------------------------------------------------|--------------------------------------------|------------|
 | 1. Go to the home page by clicking on the tasks/home button. Click on a task. | 1. Tasks are displayed on the page.         | Pass.      |
-| 2. Click the three dots, delete icon on the task.  | 2. User is redirected to the home page. The deleted task is not displayed anymore. | Pass.      |
+| 2. Click the three dots, click the delete icon on the task. Click on the delete button to confirm. | 2. User is redirected to the home page. deletedtask  | Pass.      | is not displayed anymore.
 
 ## Test Case: Responsiveness Test
 
@@ -254,7 +262,7 @@ The user is asked if are they sure that they want to delete the task/note.
 |----------------------------------------------------|--------------------------------------------|------------|
 | 1. Go to the home menu by clicking on the tasks/home button. | 1. Tasks are displayed.                    | Pass.      |
 | 2. Click on the task that the note you want to delete is related to. | 2. Selected task displayed.            | Pass.      |
-| 3. Scroll down and under the task on the note, click on the three dots, delete button. | 3. User can see the note, and when deleted, redirected to the task page. | Pass.      |
+| 3. Scroll down and under the task on the note, click on the three dots, delete button. CLick the delete button to confirm.| 3. User can see the note, and when deleted, redirected to the task page. | Pass.      |
 
 
 ## Online tets, code cheker results ##

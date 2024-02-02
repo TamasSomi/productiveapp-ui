@@ -28,7 +28,7 @@ function TasksPage({ message, filter = "" }) {
         const userTasks = data.filter((task) => task.profile_id === profile_id);
         setTasks({ results: userTasks, loading: false });
       } catch (err) {
-        //   console.log(err);
+
       }
     };
 

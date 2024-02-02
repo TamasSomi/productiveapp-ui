@@ -38,7 +38,7 @@ function NoteCreateForm(props) {
       }));
       setContent("");
     } catch (err) {
-      //   console.log(err);
+
     }
   };
 

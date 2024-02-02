@@ -29,7 +29,7 @@ function TaskPage() {
         setTask({ results: [task], loading: false });
         setNotes(notes);
       } catch (err) {
-        // console.log(err);
+
         setTask({ results: [], loading: false }); // Set loading to false in case of an error
       }
     };
